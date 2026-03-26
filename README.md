@@ -149,11 +149,9 @@ Improvement highlights:
 2. Final TransE MRR: `0.3719`
 3. Inferred triples improved over tuned base by `+0.0210` MRR
 
-Source files:
+Source file:
 
-1. `reports/kge/results.json`
-2. `reports/kge/model_comparison.json`
-3. `reports/kge/transE_optimization.json`
+1. `reports/KG_Pipeline_Final_Report.pdf`
 
 ### RAG Evaluation (Module 6)
 
@@ -188,7 +186,7 @@ project-root/
 │ ├─ expanded.nt
 │ └─ alignment.ttl
 ├─ reports/
-│ └─ final_report.pdf
+│ └─ KG_Pipeline_Final_Report.pdf
 ├─ notebooks/
 ├─ README.md
 ├─ requirements.txt
