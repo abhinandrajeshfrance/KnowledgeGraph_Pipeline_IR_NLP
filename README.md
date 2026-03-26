@@ -174,32 +174,22 @@ This demonstrates that answers are KG-grounded and explainable (not free-text on
 ```text
 project-root/
 ├─ src/
-│  ├─ crawl/
-│  ├─ ie/
-│  ├─ kg/
-│  ├─ reason/
-│  ├─ kge/
-│  └─ rag/
+│ ├─ crawl/
+│ ├─ ie/
+│ ├─ kg/
+│ ├─ reason/
+│ ├─ kge/
+│ └─ rag/
 ├─ data/
-│  ├─ raw/
-│  ├─ cleaned/
-│  ├─ kge/
-│  └─ README.md
+│ ├─ samples/
+│ └─ README.md
 ├─ kg_artifacts/
-│  ├─ ontology.ttl
-│  ├─ graph.ttl
-│  ├─ alignment.ttl
-│  ├─ expanded.nt
-│  └─ kb_stats.json
+│ ├─ ontology.ttl
+│ ├─ expanded.nt
+│ └─ alignment.ttl
 ├─ reports/
-│  ├─ final_report.md
-│  └─ kge/
+│ └─ final_report.pdf
 ├─ notebooks/
-├─ rag/
-│  ├─ pipeline.py
-│  ├─ demo.py
-│  ├─ eval_results.json
-│  └─ demo_screenshot.png
 ├─ README.md
 ├─ requirements.txt
 ├─ .gitignore
