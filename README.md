@@ -109,7 +109,7 @@ Output files:
 1. `rag/eval_results.json`
 2. `rag/demo_screenshot.png`
 
-## Ollama Setup (Optional Local LLM Backend)
+## Ollama Setup (Local LLM Backend for RAG)
 
 Install Ollama:
 
@@ -123,7 +123,7 @@ ollama pull llama3.1:8b
 ollama run llama3.1:8b
 ```
 
-If you integrate Ollama into this pipeline later, use it as the baseline/free-text answer generator while keeping SPARQL grounding for final KG answers.
+In this project workflow, Ollama can be used as the local generation backend while final answers stay grounded in SPARQL KG evidence.
 
 ## Results Summary
 
@@ -132,7 +132,16 @@ If you integrate Ollama into this pipeline later, use it as the baseline/free-te
 Best model: **TransE (optimized, KB + inferred triples)**
 
 1. `MRR = 0.3719`
-2. `Hits@10 = 0.7358`
+2. `Hits@1 = 0.1604`
+3. `Hits@3 = 0.5377`
+4. `Hits@10 = 0.7358`
+
+Second model (DistMult, full split):
+
+1. `MRR = 0.0162`
+2. `Hits@1 = 0.0000`
+3. `Hits@3 = 0.0200`
+4. `Hits@10 = 0.0400`
 
 Improvement highlights:
 

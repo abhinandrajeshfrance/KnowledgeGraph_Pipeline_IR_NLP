@@ -1,0 +1,7 @@
+{
+  "entities": 382,
+  "triple_count_train": 1096,
+  "transE_projection": "t-SNE (perplexity=30)",
+  "distMult_projection": "t-SNE (perplexity=30)",
+  "output_figure": "reports/kge/tsne_projection.png"
+}
