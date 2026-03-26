@@ -1,0 +1,147 @@
+@prefix ex: <http://example.org/ai-kg/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+
+ex: a owl:Ontology ;
+    rdfs:label "European AI Research Knowledge Graph Ontology" ;
+    rdfs:comment "Ontology for extracted entities, linked entities, and expanded facts." .
+
+# Classes
+ex:Entity a owl:Class ;
+    rdfs:label "Entity" .
+
+ex:Person a owl:Class ;
+    rdfs:subClassOf ex:Entity ;
+    rdfs:label "Person" .
+
+ex:Organization a owl:Class ;
+    rdfs:subClassOf ex:Entity ;
+    rdfs:label "Organization" .
+
+ex:Conference a owl:Class ;
+    rdfs:subClassOf ex:Entity ;
+    rdfs:label "Conference" .
+
+ex:Location a owl:Class ;
+    rdfs:subClassOf ex:Entity ;
+    rdfs:label "Location" .
+
+ex:Country a owl:Class ;
+    rdfs:subClassOf ex:Location ;
+    rdfs:label "Country" .
+
+ex:ResearchTopic a owl:Class ;
+    rdfs:subClassOf ex:Entity ;
+    rdfs:label "Research Topic" .
+
+ex:Event a owl:Class ;
+    rdfs:subClassOf ex:Entity ;
+    rdfs:label "Event" .
+
+ex:Program a owl:Class ;
+    rdfs:subClassOf ex:Entity ;
+    rdfs:label "Program" .
+
+ex:WebDocument a owl:Class ;
+    rdfs:label "Web Document" .
+
+ex:Mention a owl:Class ;
+    rdfs:label "Mention" .
+
+ex:LinkCandidate a owl:Class ;
+    rdfs:label "Link Candidate" ;
+    rdfs:comment "Candidate mapping from local entity to Wikidata with score and status." .
+
+# Object properties
+ex:affiliatedWith a owl:ObjectProperty ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Organization ;
+    rdfs:label "affiliated with" .
+
+ex:hasMember a owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Person ;
+    owl:inverseOf ex:affiliatedWith ;
+    rdfs:label "has member" .
+
+ex:participatesIn a owl:ObjectProperty ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:Event ;
+    rdfs:label "participates in" .
+
+ex:locatedIn a owl:ObjectProperty ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:Location ;
+    rdfs:label "located in" .
+
+ex:hostsEvent a owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Event ;
+    owl:inverseOf ex:participatesIn ;
+    rdfs:label "hosts event" .
+
+ex:focusesOn a owl:ObjectProperty ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:ResearchTopic ;
+    rdfs:label "focuses on" .
+
+ex:collaboratesWith a owl:ObjectProperty ;
+    rdfs:domain ex:Organization ;
+    rdfs:range ex:Organization ;
+    rdfs:label "collaborates with" .
+
+ex:mentionedIn a owl:ObjectProperty ;
+    rdfs:domain ex:Entity ;
+    rdfs:range ex:WebDocument ;
+    rdfs:label "mentioned in" .
+
+# Datatype properties
+ex:confidenceScore a owl:DatatypeProperty ;
+    rdfs:domain ex:Entity ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "confidence score" .
+
+ex:sourceUrl a owl:DatatypeProperty ;
+    rdfs:domain ex:Entity ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "source URL" .
+
+ex:extractionTimestamp a owl:DatatypeProperty ;
+    rdfs:domain ex:Entity ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "extraction timestamp" .
+
+ex:entityType a owl:DatatypeProperty ;
+    rdfs:domain ex:Entity ;
+    rdfs:range xsd:string ;
+    rdfs:label "entity type" .
+
+ex:linkScore a owl:DatatypeProperty ;
+    rdfs:domain ex:LinkCandidate ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "link score" .
+
+ex:linkStatus a owl:DatatypeProperty ;
+    rdfs:domain ex:LinkCandidate ;
+    rdfs:range xsd:string ;
+    rdfs:label "link status" .
+
+ex:wikidataQid a owl:DatatypeProperty ;
+    rdfs:domain ex:LinkCandidate ;
+    rdfs:range xsd:string ;
+    rdfs:label "wikidata qid" .
+
+# Label properties reused from standards
+rdfs:label a rdf:Property .
+skos:altLabel a rdf:Property .
+
+# Provenance properties reused from PROV
+prov:wasDerivedFrom a rdf:Property .
+prov:generatedAtTime a rdf:Property .

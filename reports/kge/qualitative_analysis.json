@@ -1,0 +1,226 @@
+{
+  "TransE_full_neighbors": {
+    "0_7": [
+      {
+        "entity": "four",
+        "similarity": 0.3373739421367645
+      },
+      {
+        "entity": "0_75",
+        "similarity": 0.24547024071216583
+      },
+      {
+        "entity": "these_buildings__located_in_the_north_campus__will_host_ecai__workshops__tutorials_and_the_doctoral_",
+        "similarity": 0.22197005152702332
+      },
+      {
+        "entity": "2026_03_25t15_43_37_901421_00_00",
+        "similarity": 0.21127015352249146
+      },
+      {
+        "entity": "mount_gai\u00e1s",
+        "similarity": 0.21007439494132996
+      }
+    ],
+    "0_73": [
+      {
+        "entity": "national_institute_for_research_in_digital_science_and_technology_inria__an_ecosystem_research___inn",
+        "similarity": 0.2347469925880432
+      },
+      {
+        "entity": "knowledge_graph_embedding",
+        "similarity": 0.23141337931156158
+      },
+      {
+        "entity": "icml__forty_third_international_conference_on_machine_learning_latest_announcements_stay_updated_wit",
+        "similarity": 0.22809754312038422
+      },
+      {
+        "entity": "2026_03_25t15_43_37_969845_00_00",
+        "similarity": 0.22794650495052338
+      },
+      {
+        "entity": "2026_03_25t15_43_37_901325_00_00",
+        "similarity": 0.2188756912946701
+      }
+    ],
+    "0_75": [
+      {
+        "entity": "ou_acc\u00e9der_aux_informations_des_appareils",
+        "similarity": 0.2681194245815277
+      },
+      {
+        "entity": "2026_03_25t15_43_37_901364_00_00",
+        "similarity": 0.26765012741088867
+      },
+      {
+        "entity": "2026_03_25t15_43_38_125894_00_00",
+        "similarity": 0.25782129168510437
+      },
+      {
+        "entity": "portuguese",
+        "similarity": 0.25550025701522827
+      },
+      {
+        "entity": "0_7",
+        "similarity": 0.24547024071216583
+      }
+    ],
+    "0_8": [
+      {
+        "entity": "download_it_here_galicia_s_city_of_culture_galicia_s_city_of_culture_rises_on_the_top_of_mount_gai\u00e1s",
+        "similarity": 0.3004356324672699
+      },
+      {
+        "entity": "le_fait_de_ne",
+        "similarity": 0.25851795077323914
+      },
+      {
+        "entity": "vito_dichio",
+        "similarity": 0.25358277559280396
+      },
+      {
+        "entity": "2026_03_25t15_43_38_125979_00_00",
+        "similarity": 0.2392021119594574
+      },
+      {
+        "entity": "herm\u00e8s",
+        "similarity": 0.23363180458545685
+      }
+    ],
+    "0_8300000000000001": [
+      {
+        "entity": "despite_such_extraordinary_circumstances__digital_ecai_was_a_huge_success__with_more_than_5__attende",
+        "similarity": 0.22649985551834106
+      },
+      {
+        "entity": "2026_03_25t15_43_37_969861_00_00",
+        "similarity": 0.22349873185157776
+      },
+      {
+        "entity": "ecai__october__santiago_de_compostela",
+        "similarity": 0.22235310077667236
+      },
+      {
+        "entity": "from_my_experiences__i_would_advice_students_who_would_like_to_work_in_this_field_to_first_find_out_",
+        "similarity": 0.21233390271663666
+      },
+      {
+        "entity": "france",
+        "similarity": 0.2034655511379242
+      }
+    ]
+  },
+  "DistMult_full_neighbors": {
+    "0_7": [
+      {
+        "entity": "0_9",
+        "similarity": 0.5848000645637512
+      },
+      {
+        "entity": "0_93",
+        "similarity": 0.5707923769950867
+      },
+      {
+        "entity": "0_95",
+        "similarity": 0.5485687851905823
+      },
+      {
+        "entity": "0_9500000000000001",
+        "similarity": 0.5331058502197266
+      },
+      {
+        "entity": "0_75",
+        "similarity": 0.5203939080238342
+      }
+    ],
+    "0_73": [
+      {
+        "entity": "2026_03_25t15_43_37_969841_00_00",
+        "similarity": 0.5550782084465027
+      },
+      {
+        "entity": "2026_03_25t15_43_37_901325_00_00",
+        "similarity": 0.533814013004303
+      },
+      {
+        "entity": "2026_03_25t15_43_37_901377_00_00",
+        "similarity": 0.4983569383621216
+      },
+      {
+        "entity": "2026_03_25t15_43_37_901168_00_00",
+        "similarity": 0.4962833821773529
+      },
+      {
+        "entity": "2026_03_25t15_43_37_901333_00_00",
+        "similarity": 0.4904938340187073
+      }
+    ],
+    "0_75": [
+      {
+        "entity": "0_7",
+        "similarity": 0.5203939080238342
+      },
+      {
+        "entity": "0_8300000000000001",
+        "similarity": 0.49658676981925964
+      },
+      {
+        "entity": "0_88",
+        "similarity": 0.43745046854019165
+      },
+      {
+        "entity": "2026_03_25t15_37_04_789729_00_00",
+        "similarity": 0.40115416049957275
+      },
+      {
+        "entity": "0_9",
+        "similarity": 0.3750063478946686
+      }
+    ],
+    "0_8": [
+      {
+        "entity": "download_it_here_galicia_s_city_of_culture_galicia_s_city_of_culture_rises_on_the_top_of_mount_gai\u00e1s",
+        "similarity": 0.46580052375793457
+      },
+      {
+        "entity": "2026_03_25t15_43_38_126180_00_00",
+        "similarity": 0.4366334080696106
+      },
+      {
+        "entity": "0_95",
+        "similarity": 0.43070822954177856
+      },
+      {
+        "entity": "2026_03_25t15_43_38_126144_00_00",
+        "similarity": 0.42130744457244873
+      },
+      {
+        "entity": "2026_03_25t15_43_38_126148_00_00",
+        "similarity": 0.41991886496543884
+      }
+    ],
+    "0_8300000000000001": [
+      {
+        "entity": "0_75",
+        "similarity": 0.49658679962158203
+      },
+      {
+        "entity": "2026_03_25t15_43_37_901243_00_00",
+        "similarity": 0.4200425446033478
+      },
+      {
+        "entity": "2026_03_25t15_43_37_901290_00_00",
+        "similarity": 0.41693612933158875
+      },
+      {
+        "entity": "0_88",
+        "similarity": 0.3890664577484131
+      },
+      {
+        "entity": "pr_ai_rie_is_one_of_the_9_french_ai_clusters_financed_by_france__for_a_total_of_75m__over_5_years",
+        "similarity": 0.3880649507045746
+      }
+    ]
+  }
+}

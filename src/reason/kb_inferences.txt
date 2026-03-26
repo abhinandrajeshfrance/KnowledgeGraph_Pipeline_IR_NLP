@@ -1,0 +1,97 @@
+================================================================================
+CUSTOM KB REASONING: INFERRED TRIPLES
+================================================================================
+
+SWRL RULES APPLIED:
+
+  Rule 1: Organization Location Transitivity
+    Formal: affiliatedWith(x,y) ∧ locatedIn(y,z) → worksInCountry(x,z)
+    Meaning: If person X works for org Y, and Y is in country Z, then X works in Z
+
+  Rule 2: Research Field Sharing via Collaboration
+    Formal: collaboratesWith(x,y) ∧ hasResearchArea(y,f) → sharesResearchField(x,f)
+    Meaning: If org X collaborates with Y, and Y works in field F, then X shares field F
+
+  Rule 3: Person-Organization-Field Collaboration
+    Formal: worksOn(x,f) ∧ hasResearchArea(y,f) → collaboratesInField(x,y)
+    Meaning: If person X works in field F, and org Y also works in F, then X-Y collaborate
+
+================================================================================
+INFERRED TRIPLES: 257 facts
+================================================================================
+
+Rule 1 (Organization Location): 84 inferences
+Rule 2 (Research Field Sharing): 162 inferences
+Rule 3 (Person-Org-Field): 11 inferences
+TOTAL NEW FACTS INTRODUCED: 257
+
+EXAMPLE INFERRED TRIPLES:
+
+
+Rule 1 Examples:
+--------------------------------------------------------------------------------
+
+1. dates-key --[worksInCountry]--> Amsterdam
+   Reasoning: dates-key --affiliatedWith--> AI-Clusters --locatedIn--> Amsterdam
+
+2. dates-key --[worksInCountry]--> Bologna
+   Reasoning: dates-key --affiliatedWith--> AI-Clusters --locatedIn--> Bologna
+
+3. dates-key --[worksInCountry]--> Brighton
+   Reasoning: dates-key --affiliatedWith--> AI-Clusters --locatedIn--> Brighton
+
+4. peter-eisenman --[worksInCountry]--> Amsterdam
+   Reasoning: peter-eisenman --affiliatedWith--> AI-Clusters --locatedIn--> Amsterdam
+
+5. peter-eisenman --[worksInCountry]--> Bologna
+   Reasoning: peter-eisenman --affiliatedWith--> AI-Clusters --locatedIn--> Bologna
+
+   ... and 79 more
+
+Rule 2 Examples:
+--------------------------------------------------------------------------------
+
+1. CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE --[sharesResearchField]--> Artificial Intelligence
+   Reasoning: CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE --collaboratesWith--> CNRS --hasResearchArea--> Artificial Intelligence
+
+2. CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE --[sharesResearchField]--> Knowledge Graphs
+   Reasoning: CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE --collaboratesWith--> CNRS --hasResearchArea--> Knowledge Graphs
+
+3. CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE --[sharesResearchField]--> Knowledge Reasoning
+   Reasoning: CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE --collaboratesWith--> CNRS --hasResearchArea--> Knowledge Reasoning
+
+4. CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE --[sharesResearchField]--> Ontology Engineering
+   Reasoning: CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE --collaboratesWith--> CNRS --hasResearchArea--> Ontology Engineering
+
+5. Google DeepMind --[sharesResearchField]--> Artificial Intelligence
+   Reasoning: Google DeepMind --collaboratesWith--> CNRS --hasResearchArea--> Artificial Intelligence
+
+   ... and 157 more
+
+Rule 3 Examples:
+--------------------------------------------------------------------------------
+
+1. Peter Eisenman --[collaboratesInField]--> CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE
+   Reasoning: Peter Eisenman --worksOn--> Knowledge Graphs <--hasResearchArea-- CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE
+
+2. Peter Eisenman --[collaboratesInField]--> CNRS
+   Reasoning: Peter Eisenman --worksOn--> Knowledge Graphs <--hasResearchArea-- CNRS
+
+3. Peter Eisenman --[collaboratesInField]-->  Personnages
+   Reasoning: Peter Eisenman --worksOn--> Knowledge Graphs <--hasResearchArea--  Personnages
+
+4. Peter Eisenman --[collaboratesInField]--> CNRS
+   Reasoning: Peter Eisenman --worksOn--> Ontology Engineering <--hasResearchArea-- CNRS
+
+5. Peter Eisenman --[collaboratesInField]--> ICML
+   Reasoning: Peter Eisenman --worksOn--> Ontology Engineering <--hasResearchArea-- ICML
+
+   ... and 6 more
+
+
+================================================================================
+FINAL STATISTICS
+================================================================================
+Original KB triples: 1653
+Inferred new triples: 257
+Projected KB with inferences: 1910

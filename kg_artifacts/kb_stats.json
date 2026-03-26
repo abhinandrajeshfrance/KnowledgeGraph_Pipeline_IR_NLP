@@ -1,0 +1,25 @@
+{
+  "before_expansion": {
+    "triple_count": 1381,
+    "entity_count": 151,
+    "linked_entity_count": 35
+  },
+  "after_expansion": {
+    "triple_count": 1458,
+    "entity_count": 151,
+    "linked_entity_count": 35,
+    "linked_entity_percent": 23.18,
+    "synthetic_triples_added": 77,
+    "relation_types": {
+      "http://example.org/ai-kg/sourceUrl": 151,
+      "http://www.w3.org/2004/02/skos/core#altLabel": 151,
+      "http://example.org/ai-kg/confidenceScore": 151,
+      "http://www.w3.org/ns/prov#wasDerivedFrom": 151,
+      "http://www.w3.org/2002/07/owl#sameAs": 35,
+      "http://example.org/ai-kg/entityType": 151,
+      "http://example.org/ai-kg/extractionTimestamp": 151,
+      "http://example.org/ai-kg/affiliatedWith": 28,
+      "http://example.org/ai-kg/locatedIn": 49
+    }
+  }
+}

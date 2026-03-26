@@ -1,0 +1,147 @@
+FILE: RAG_images.pptx
+SLIDES: 48
+
+
+===== SLIDE 1 =====
+Retrieval-Augmented Generation (RAG) with Knowledge Graph (KG) for Large Language Models (LLMs)
+
+===== SLIDE 2 =====
+Roadmap
+
+===== SLIDE 3 =====
+Brief introduction to LLM and RAG
+
+===== SLIDE 4 =====
+The LLM Revolution: Knowledge as a Parameter
+
+===== SLIDE 5 =====
+What is Large Language Model (briefly)
+
+===== SLIDE 6 =====
+How do LLMs work?
+
+===== SLIDE 7 =====
+Transformer, why not RNN/LSTM/…?
+
+===== SLIDE 8 =====
+Transformer, why not RNN/LSTM/…?
+
+===== SLIDE 9 =====
+Transformer, why not RNN/LSTM/…?
+
+===== SLIDE 10 =====
+Attention+Transformer
+
+===== SLIDE 11 =====
+Transformers were revolutionary
+
+===== SLIDE 12 =====
+LLM training
+
+===== SLIDE 13 =====
+LLMs: Intrinsic Challenges and Limitations
+
+===== SLIDE 14 =====
+One solution: Connecting Reasoning to verifiable knowledge
+
+===== SLIDE 15 =====
+Parametric vs. Non-Parametric Knowledge
+
+===== SLIDE 16 =====
+Introducing Retrieval-Augmented Generation (RAG)
+
+===== SLIDE 17 =====
+RAG Framework Paradigms
+
+===== SLIDE 18 =====
+Naive RAG
+
+===== SLIDE 19 =====
+Naive RAG: The indexing phase (offline)
+
+===== SLIDE 20 =====
+Naive RAG: Retrieval and Generation Phases (online)
+
+===== SLIDE 21 =====
+Finding Relevant Knowledge
+
+===== SLIDE 22 =====
+A simple pipeline I: dependencies
+
+===== SLIDE 23 =====
+A simple pipeline II: embedding
+
+===== SLIDE 24 =====
+A simple pipeline III:  Query with RAG using Ollama
+
+===== SLIDE 25 =====
+LLM with KG
+
+===== SLIDE 26 =====
+KGE not compatible with RAG
+
+===== SLIDE 27 =====
+How knowledge graph interact with LLM? 
+
+===== SLIDE 28 =====
+Graph‑to‑Text RAG
+
+===== SLIDE 29 =====
+RAG over a knowledge graph
+
+===== SLIDE 30 =====
+RAG over a knowledge graph: example
+
+===== SLIDE 31 =====
+Using the KG as a Contextual Memory for the LLM
+
+===== SLIDE 32 =====
+LLM + KG Reasoning
+
+===== SLIDE 33 =====
+LLM + KG Reasoning: Example
+
+===== SLIDE 34 =====
+More on RAG
+
+===== SLIDE 35 =====
+Drawbacks in Naive RAG: Retrieval Quality
+
+===== SLIDE 36 =====
+Drawbacks of Naive RAG: Generation and Augmentation
+
+===== SLIDE 37 =====
+Need for Advanced and Modular RAG
+
+===== SLIDE 38 =====
+Advanced RAG
+
+===== SLIDE 39 =====
+The modern Paradigm: Modular RAG
+
+===== SLIDE 40 =====
+Comparison between RAG and Fine-tuning
+
+===== SLIDE 41 =====
+Fusing Knowledge with Generation
+
+===== SLIDE 42 =====
+Challenges and Future Directions
+
+===== SLIDE 43 =====
+Conclusion: RAG: the key to Trustworthy and Knowledgeable AI
+
+===== SLIDE 44 =====
+References for Further Reading
+
+===== SLIDE 45 =====
+
+
+===== SLIDE 46 =====
+Resume of the project
+
+===== SLIDE 47 =====
+Evaluation
+
+===== SLIDE 48 =====
+RAG vs. Fine-tuning (FT)

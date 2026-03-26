@@ -1,0 +1,51 @@
+================================================================================
+FAMILY ONTOLOGY REASONING: INFERRED TRIPLES
+================================================================================
+
+SWRL RULES APPLIED:
+
+  Rule 1: isParentOf(x,y) ∧ isParentOf(y,z) → isGrandparentOf(x,z)
+    Meaning: If x is parent of y, and y is parent of z, then x is grandparent of z
+
+  Rule 2: isFatherOf(x,y) ∧ isFatherOf(y,z) → isGrandFatherOf(x,z)
+    Meaning: If x is father of y, and y is father of z, then x is grandfather of z
+
+  Rule 3: isParentOf(x,y) ∧ isParentOf(x,z) ∧ y≠z → isSiblingOf(y,z)
+    Meaning: If x is parent of both y and z (where y≠z), then y and z are siblings
+
+================================================================================
+EXPLICIT FACTS (Base Knowledge): 100 facts
+================================================================================
+
+1. Tom --[age]--> 10
+2. Tom --[name]--> Tom
+3. Tom --[isSonOf]--> Thomas
+4. Tom --[isSonOf]--> Alex
+5. Thomas --[age]--> 40
+
+... and 95 more explicit facts
+
+
+================================================================================
+INFERRED TRIPLES: 2 facts
+================================================================================
+
+1. Peter --[isGrandFatherOf]--> Michael
+   Rule: Grandfather Rule
+   Via: isFatherOf(Peter, Thomas) ∧ isFatherOf(Thomas, Michael)
+
+2. Peter --[isGrandFatherOf]--> Michael
+   Rule: Grandfather Rule
+   Via: isFatherOf(Peter, Thomas) ∧ isFatherOf(Thomas, Michael)
+
+
+
+================================================================================
+SUMMARY
+================================================================================
+Total explicit facts: 100
+Total inferred facts: 2
+  Rule 1 (Grandparent): 0
+  Rule 2 (Grandfather): 2
+  Rule 3 (Sibling): 0
+Final knowledge base size: 102

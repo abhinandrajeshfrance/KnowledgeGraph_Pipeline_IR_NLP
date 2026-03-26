@@ -1,0 +1,79 @@
+FILE: Lab Session 1.pdf
+PAGES: 3
+
+
+===== PAGE 1 =====
+Lab Session 1.md 2026-01-14
+1 / 3
+Lab Session 1: From the Unstructured Web to
+Structured Entities
+Course: Web mining & semantics
+Duration: 3 Hours (two sessions)
+1. Introduction
+This combined session focuses on the first two steps of the knowledge engineering lifecycle: Data
+Acquisition and Information Extraction. You will transform raw, noisy HTML from the open web into a
+structured dataset of entities and relationships.
+This is the "foundation" phase. The quality of the Knowledge Graph you build in later sessions depends
+entirely on the cleanliness of the data you extract today.
+You should start thinking of the target site to crawl/scrap, but it is notnecessary to set your target in this session. The objective of the sessions is tobuild a pipeline for information retrival, which you can use easily once thetarget sites are decided.
+2. Learning Objectives
+By the end of this lab, you will be able to:
+Build a domain-specific crawler that respects web ethics (robots.txt).
+Implement boilerplate removal to isolate meaningful content from UI noise.
+Apply Natural Language Processing (NLP) to identify key entities (NER).
+Perform Dependency Parsing to identify candidate relations between entities.
+3. Technical Requirements
+Ensure your Python environment has the following libraries installed:
+httpx or requests (Fetching)
+trafilatura (Advanced text extraction)
+spacy (NLP pipeline)
+pandas (Data management)
+en_core_web_trf is a transformer-based model for NLP. it is equipped with these components:
+transformer, tagger, parser, ner, attribute_ruler, lemmatizer.
+pip install trafilatura spacy pandas httpx 
+python -m spacy download en_core_web_trf 
+
+===== PAGE 2 =====
+Lab Session 1.md 2026-01-14
+2 / 3
+4. Phase 1: Web Crawling & Cleaning (90 Mins)
+1.1 Source Selection
+Choose a domain (e.g., Sustainable Energy, Local History, news or AI Research). Select 5–10 "seed" URLs
+that contain rich, text-heavy descriptions. You can also choose APIs as information sources, if you
+encounter the problem of anti-robotic checking. (You won't need beautifulsoup or trafilatura) if you
+extract text from APIs.
+1.2 The Extraction Pipeline
+Don't just scrape the whole page. A Knowledge Graph built on "Copyright 2024" or "Click here to
+subscribe" is useless.
+Action: Use trafilatura to fetch and strip HTML. It is specifically designed to find the "Main Content"
+of a page.
+Storage: Store your results in a JSONL (JSON Lines) format to preserve the mapping between the
+URL and the text.
+Challenge: Write a function that checks if a page is "useful" (e.g., contains more than 500 words) before
+saving it.
+5. Phase 2: Information Extraction (90 Mins)
+2.1 Named Entity Recognition (NER)
+Identify the "Nodes" of your future graph.
+Action: Process your cleaned text using spaCy.
+Goal: Extract labels such as PERSON, ORG (Organization), GPE (Location), and DATE.
+Refinement: Filter out common nouns. You only want specific instances that define your domain.
+2.2 Introduction to Relations
+A Knowledge Graph needs "Edges."
+Action: Look for entities that appear in the same sentence.
+Experiment: Use spaCy dependency tags (like nsubj and dobj) to see if you can programmatically
+find a verb connecting two entities.
+Example: "The University of Paris [ORG] is located in France [GPE]."
+Target Triple: (University of Paris) -> [is located in] -> (France)
+6. Deliverables
+You do not need to submit the results. The results will be used in next lab sessions, as part of the project.
+The results will consist of two files:
+
+===== PAGE 3 =====
+Lab Session 1.md 2026-01-14
+3 / 3
+crawler_output.jsonl: The cleaned text and metadata for your URLs.
+extracted_knowledge.csv: A table of entities found, their type, and the source URL.
+Lab Report (2 pages max):
+Methodology: How did you handle navigation? discribe the pipeline.
+Ambiguity Analysis: Provide 3 examples of "Entity Ambiguity" (e.g., a word the AI got wrong due to context).
+Scaling Reflection: How would your approach change if you had to crawl 10,000 pages instead of 10?

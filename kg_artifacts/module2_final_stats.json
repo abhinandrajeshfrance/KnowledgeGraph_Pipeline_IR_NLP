@@ -1,0 +1,80 @@
+{
+  "module": 2,
+  "phase": 3,
+  "method": "heuristic_linking_with_synthetic_expansion",
+  "timestamp": "2024",
+  "summary": {
+    "linking_quality": {
+      "auto_linked": 16,
+      "candidates": 19,
+      "total_linked": 35,
+      "rejected": 76,
+      "total_entities": 111,
+      "linking_rate_percent": 31.53
+    },
+    "graph_evolution": {
+      "aligned": {
+        "triple_count": 1381,
+        "entity_count": 151,
+        "linked_entity_count": 35,
+        "linked_entity_percent": 23.18,
+        "entity_type_distribution": {
+          "ORDINAL": 7,
+          "ORG": 75,
+          "GPE": 17,
+          "DATE": 15,
+          "NORP": 11,
+          "PERSON": 5,
+          "PRODUCT": 1,
+          "WORK_OF_ART": 2,
+          "LANGUAGE": 1,
+          "LOC": 10,
+          "PERCENT": 1,
+          "CARDINAL": 5,
+          "FAC": 1
+        },
+        "relation_distribution": {},
+        "graph_density": 9.15
+      },
+      "expanded": {
+        "triple_count": 1458,
+        "entity_count": 151,
+        "linked_entity_count": 35,
+        "linked_entity_percent": 23.18,
+        "entity_type_distribution": {
+          "ORDINAL": 7,
+          "DATE": 15,
+          "NORP": 11,
+          "ORG": 75,
+          "PERSON": 5,
+          "PRODUCT": 1,
+          "GPE": 17,
+          "WORK_OF_ART": 2,
+          "LANGUAGE": 1,
+          "LOC": 10,
+          "PERCENT": 1,
+          "CARDINAL": 5,
+          "FAC": 1
+        },
+        "relation_distribution": {
+          "ex:affiliatedWith": 28,
+          "ex:locatedIn": 49
+        },
+        "graph_density": 9.66
+      },
+      "triple_growth": {
+        "before": 1381,
+        "after": 1458,
+        "added": 77,
+        "growth_percent": 5.58
+      }
+    }
+  },
+  "completion": {
+    "step3_complete": true,
+    "step5_complete": true,
+    "step6_complete": true,
+    "linking_rate_exceeds_target": true,
+    "synthetic_triples_exceed_target": true
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "query": "Which organizations collaborate in knowledge graphs and where are they located?",
+  "retrieved_documents": [
+    {
+      "document": "KnowledgeInference.txt",
+      "score": 0.2690459514067328,
+      "text": "==== Knowledge Graphs & The Open World Assumption \u2022 Closed World Assumption (CWA): absence of a fact means it is necessarily false. \u2022 Open World Assumption (OWA): absence of a fact does not imply fact is false. We simply do not know. \u2022 Knowledge Graphs adopt this assumption 48 ===== PAGE 47 ===== Machine Learning on Knowledge Graphs 49 ===== PAGE 48 ===== Machine Learning on Knowledge Graphs 50 \u2022 Assigning a score proportional to the likelihood that an unseen triple is true. (Knowledge Graph Completion) \u2022 Link Prediction \u2022 Learning to rank problem \u2022 Information retrieval metrics \u2022 No ground truth negatives in test set required \u2022 Triple Classification \u2022 Binary classification task \u2022 Binary cla"
+    },
+    {
+      "document": "KnowledgeInference.txt",
+      "score": 0.17896057832509102,
+      "text": "ings from? \u2022 We can learn the embedding matrix during training. \u2022 Initialization matters: use random weights, but in special range (e.g. [-1/(2d), +(1/2d)] for d-dimensional embeddings), or use Xavier initialization \u2022 We can also use pre-trained embeddings LM-based embeddings are useful for many NLP task \u2022 Word embedding is the ancestor of the embedding methods used in RAG for LLM \u2022 Embedding for knowledge graphs? 44 ===== PAGE 43 ===== Knowledge Graph embeddings 45 ===== PAGE 44 ===== Recall: knowledge Graph 46 ===== PAGE 45 ===== Recall: knowledge Graph 47 ===== PAGE 46 ===== Knowledge Graphs & The Open World Assumption \u2022 Closed World Assumption (CWA): absence of a fact means it is necessa"
+    },
+    {
+      "document": "KnowledgeInference.txt",
+      "score": 0.15864761408711375,
+      "text": "mandpour, Patrick Ding, Daisy Zhe Wang. DRUM: End-To-End Differentiable Rule Mining On Knowledge Graphs. NIPS 2019 \u2022 Meng Qu, Junkun Chen, Louis-Pascal Xhonneux, Yoshua Bengio, Jian Tang. RNNLogic: Learning Logic Rules for Reasoning on Knowledge Graphs. ICLR2021 84 ===== PAGE 82 ===== References (courses) \u2022 Daniel Jurafsky & James H. Martin. Ch.6, Speech and Language Processing. \u2022 Julia Hockenmaier, CS546 Lecture 4: static word embeddings, Illinois Univ. \u2022 Luke Zettlemoyer, CSEP517 Word Embeddings, Washington Univ. \u2022 Charilaos Kanatsoulis and Jure Leskovec,CS224W, Knowledge Graph Embeddings, Stanford University \u2022 Luca Costabello, Knowledge Graph Embeddings: From Theory to Practice, ECAI2020 "
+    },
+    {
+      "document": "QueryWithOpenKB.txt",
+      "score": 0.12658590857336077,
+      "text": "s (e.g., DBpedia, Wikidata, or Freebase) to link extracted entities to canonical identifiers. \u2022 Tools like DBpedia Spotlight or TAGME can automate this mapping. 26 ===== PAGE 27 ===== Integration into the Knowledge Graph/Base \u2022 Once data is normalised, we can build the knowledge graph. \u2022 Use RDF libraries, such as Apache Jena (in Java) and RDFLib (in Python). The knowledge graphs are stored via rdf files. \u2022 The knowledge graph can be stored using Graph databases, like Neo4j, GraphDB, etc. They allow to store and manage the knowledge graph with database management system feature, such as optimised query, back-up, conflict management, distributed storage, etc. (You will have graph mining modul"
+    }
+  ],
+  "retrieved_kg_triples": [
+    {
+      "score": 4,
+      "triple": [
+        "knowledge_graphs",
+        "description",
+        "field_focused_on_structured_knowledge_representation_and_reasoning"
+      ]
+    },
+    {
+      "score": 4,
+      "triple": [
+        "inria_portraits___personnages",
+        "hasresearcharea",
+        "knowledge_graphs"
+      ]
+    },
+    {
+      "score": 4,
+      "triple": [
+        "chair_program_committee_chairs_organizing_committee",
+        "hasresearcharea",
+        "knowledge_graphs"
+      ]
+    },
+    {
+      "score": 3,
+      "triple": [
+        "knowledge_graphs",
+        "broader",
+        "entity_linking"
+      ]
+    },
+    {
+      "score": 3,
+      "triple": [
+        "universit\u00e9_de_paris_cit\u00e9",
+        "altlabel",
+        "its_founding_academic_members_are_cnrs__inria__institut_pasteur__universit\u00e9_psl_and_universit\u00e9_de_pa"
+      ]
+    },
+    {
+      "score": 3,
+      "triple": [
+        "cnrs",
+        "hasresearcharea",
+        "knowledge_reasoning"
+      ]
+    },
+    {
+      "score": 3,
+      "triple": [
+        "cnrs",
+        "hasresearcharea",
+        "knowledge_graphs"
+      ]
+    },
+    {
+      "score": 3,
+      "triple": [
+        "herm\u00e8s",
+        "altlabel",
+        "80_partner_companies_including_ge_healthcare__google_deepmind__herm\u00e8s__meta__val\u00e9o_and_startups"
+      ]
+    }
+  ],
+  "answer": "Query: Which organizations collaborate in knowledge graphs and where are they located?\n\nEvidence from retrieved documents:\n1. [KnowledgeInference.txt] score=0.2690 :: ==== Knowledge Graphs & The Open World Assumption \u2022 Closed World Assumption (CWA): absence of a fact means it is necessarily false. \u2022 Open World Assumption (OWA): absence of a fact does not imply fact is false. We simply do not know. \u2022 Knowledge Graphs adopt t\n2. [KnowledgeInference.txt] score=0.1790 :: ings from? \u2022 We can learn the embedding matrix during training. \u2022 Initialization matters: use random weights, but in special range (e.g. [-1/(2d), +(1/2d)] for d-dimensional embeddings), or use Xavier initialization \u2022 We can also use pre-trained embeddings LM-\n3. [KnowledgeInference.txt] score=0.1586 :: mandpour, Patrick Ding, Daisy Zhe Wang. DRUM: End-To-End Differentiable Rule Mining On Knowledge Graphs. NIPS 2019 \u2022 Meng Qu, Junkun Chen, Louis-Pascal Xhonneux, Yoshua Bengio, Jian Tang. RNNLogic: Learning Logic Rules for Reasoning on Knowledge Graphs. ICLR20\n4. [QueryWithOpenKB.txt] score=0.1266 :: s (e.g., DBpedia, Wikidata, or Freebase) to link extracted entities to canonical identifiers. \u2022 Tools like DBpedia Spotlight or TAGME can automate this mapping. 26 ===== PAGE 27 ===== Integration into the Knowledge Graph/Base \u2022 Once data is normalised, we can\n\nEvidence from KG triples:\n1. (knowledge_graphs, description, field_focused_on_structured_knowledge_representation_and_reasoning)\n2. (inria_portraits___personnages, hasresearcharea, knowledge_graphs)\n3. (chair_program_committee_chairs_organizing_committee, hasresearcharea, knowledge_graphs)\n4. (knowledge_graphs, broader, entity_linking)\n5. (universit\u00e9_de_paris_cit\u00e9, altlabel, its_founding_academic_members_are_cnrs__inria__institut_pasteur__universit\u00e9_psl_and_universit\u00e9_de_pa)\n6. (cnrs, hasresearcharea, knowledge_reasoning)\n7. (cnrs, hasresearcharea, knowledge_graphs)\n8. (herm\u00e8s, altlabel, 80_partner_companies_including_ge_healthcare__google_deepmind__herm\u00e8s__meta__val\u00e9o_and_startups)\n\nDraft answer:\nThe response should cite the retrieved passages and the KG relations above. Use the highest-score document chunks as primary support and KG triples as structured evidence.",
+  "stats": {
+    "num_chunks": 171,
+    "num_kg_triples": 1096
+  }
+}

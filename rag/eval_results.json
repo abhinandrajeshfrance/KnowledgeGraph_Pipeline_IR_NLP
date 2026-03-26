@@ -1,0 +1,194 @@
+{
+  "summary": {
+    "num_questions": 5,
+    "kg_query_success_rate": 1.0,
+    "avg_supporting_triples": 4.6
+  },
+  "results": [
+    {
+      "question": "Which organizations work on Machine Learning?",
+      "baseline_no_kg": "Baseline (no KG): likely answer based on document similarity only. Top source hint: information_retrieval.txt :: FILE: information_retrieval.pdf PAGES: 60 ===== PAGE 1 ===== INFORMATION RETRIEVAL From plain text to triplets ===== PAGE 2 ===== Data (text) pre- processing 2 ===== PAGE 3 ===== Data (text) pre-processing: From raw to s",
+      "rag_with_kg": {
+        "question": "Which organizations work on Machine Learning?",
+        "sparql": "PREFIX ex: <http://example.org/ai-kg/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nSELECT DISTINCT ?org ?orgLabel ?areaLabel WHERE {\n  ?org ex:hasResearchArea ?area .\n  ?area rdfs:label ?areaLabel .\n  FILTER(CONTAINS(LCASE(STR(?areaLabel)), \"machine learning\"))\n  OPTIONAL { ?org rdfs:label ?orgLabel }\n}\nLIMIT 10",
+        "query_success": true,
+        "retry_count": 0,
+        "query_error": null,
+        "answer": "Organizations connected to Machine Learning include  Personnages, CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE, Google DeepMind, ICML, Le.",
+        "supporting_triples": [
+          {
+            "s": "CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE",
+            "p": "hasResearchArea",
+            "o": "Machine Learning"
+          },
+          {
+            "s": "Google DeepMind",
+            "p": "hasResearchArea",
+            "o": "Machine Learning"
+          },
+          {
+            "s": "ICML",
+            "p": "hasResearchArea",
+            "o": "Machine Learning"
+          },
+          {
+            "s": " Personnages",
+            "p": "hasResearchArea",
+            "o": "Machine Learning"
+          },
+          {
+            "s": "Le",
+            "p": "hasResearchArea",
+            "o": "Machine Learning"
+          }
+        ]
+      }
+    },
+    {
+      "question": "Who collaborates with CNRS?",
+      "baseline_no_kg": "Baseline (no KG): likely answer based on document similarity only. Top source hint: information_retrieval.txt :: FILE: information_retrieval.pdf PAGES: 60 ===== PAGE 1 ===== INFORMATION RETRIEVAL From plain text to triplets ===== PAGE 2 ===== Data (text) pre- processing 2 ===== PAGE 3 ===== Data (text) pre-processing: From raw to s",
+      "rag_with_kg": {
+        "question": "Who collaborates with CNRS?",
+        "sparql": "PREFIX ex: <http://example.org/ai-kg/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nSELECT DISTINCT ?partner ?partnerLabel WHERE {\n  ?cnrs rdfs:label ?cnrsLabel .\n  FILTER(CONTAINS(LCASE(STR(?cnrsLabel)), \"cnrs\"))\n  { ?cnrs ex:collaboratesWith ?partner } UNION { ?partner ex:collaboratesWith ?cnrs }\n  OPTIONAL { ?partner rdfs:label ?partnerLabel }\n}\nLIMIT 10",
+        "query_success": true,
+        "retry_count": 0,
+        "query_error": null,
+        "answer": "CNRS collaborates with  Personnages, CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE, Google DeepMind, ICML.",
+        "supporting_triples": [
+          {
+            "s": "CNRS",
+            "p": "collaboratesWith",
+            "o": "CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE"
+          },
+          {
+            "s": "CNRS",
+            "p": "collaboratesWith",
+            "o": "Google DeepMind"
+          },
+          {
+            "s": "CNRS",
+            "p": "collaboratesWith",
+            "o": "ICML"
+          },
+          {
+            "s": "CNRS",
+            "p": "collaboratesWith",
+            "o": " Personnages"
+          },
+          {
+            "s": "CNRS",
+            "p": "collaboratesWith",
+            "o": "Le"
+          }
+        ]
+      }
+    },
+    {
+      "question": "What research areas does ICML cover?",
+      "baseline_no_kg": "Baseline (no KG): likely answer based on document similarity only. Top source hint: Lab Session 1.txt :: FILE: Lab Session 1.pdf PAGES: 3 ===== PAGE 1 ===== Lab Session 1.md 2026-01-14 1 / 3 Lab Session 1: From the Unstructured Web to Structured Entities Course: Web mining & semantics Duration: 3 Hours (two sessions) 1. Int",
+      "rag_with_kg": {
+        "question": "What research areas does ICML cover?",
+        "sparql": "PREFIX ex: <http://example.org/ai-kg/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nSELECT DISTINCT ?icml ?area ?areaLabel WHERE {\n  ?icml ex:hasResearchArea ?area .\n  FILTER(CONTAINS(LCASE(STR(?icml)), \"icml\"))\n  OPTIONAL { ?area rdfs:label ?areaLabel }\n}\nLIMIT 10",
+        "query_success": true,
+        "retry_count": 0,
+        "query_error": null,
+        "answer": "ICML is linked to research areas including Artificial Intelligence, Machine Learning, Natural Language Processing, Ontology Engineering.",
+        "supporting_triples": [
+          {
+            "s": "icml bf22b9f1e9",
+            "p": "hasResearchArea",
+            "o": "Artificial Intelligence"
+          },
+          {
+            "s": "icml bf22b9f1e9",
+            "p": "hasResearchArea",
+            "o": "Machine Learning"
+          },
+          {
+            "s": "icml bf22b9f1e9",
+            "p": "hasResearchArea",
+            "o": "Natural Language Processing"
+          },
+          {
+            "s": "icml bf22b9f1e9",
+            "p": "hasResearchArea",
+            "o": "Ontology Engineering"
+          }
+        ]
+      }
+    },
+    {
+      "question": "Which organizations collaborate with Google DeepMind?",
+      "baseline_no_kg": "Baseline (no KG): likely answer based on document similarity only. Top source hint: KnowledgeInference.txt :: FILE: KnowledgeInference.pdf PAGES: 82 ===== PAGE 1 ===== Knowledge reasoning with knowledge base Yiru Zhang Web mining & semantics D\u00e9partement d\u2019Informatique Ecole Sup\u00e9rieure d\u2019Ing\u00e9nieurs L\u00e9onard de Vinci ===== PAGE 2 =",
+      "rag_with_kg": {
+        "question": "Which organizations collaborate with Google DeepMind?",
+        "sparql": "PREFIX ex: <http://example.org/ai-kg/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nSELECT DISTINCT ?target ?targetLabel ?partner ?partnerLabel WHERE {\n  OPTIONAL { ?target rdfs:label ?targetLabel }\n  FILTER(CONTAINS(LCASE(STR(?target)), \"google-deepmind\") || CONTAINS(LCASE(STR(COALESCE(?targetLabel, \"\"))), \"google deepmind\"))\n  { ?target ex:collaboratesWith ?partner } UNION { ?partner ex:collaboratesWith ?target }\n  OPTIONAL { ?partner rdfs:label ?partnerLabel }\n}\nLIMIT 10",
+        "query_success": true,
+        "retry_count": 0,
+        "query_error": null,
+        "answer": "From the KG evidence, the entities are connected as follows: Google DeepMind -> collaboratesWith -> CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE; Google DeepMind -> collaboratesWith -> CNRS; Google DeepMind -> collaboratesWith -> ICML; Google DeepMind -> collaboratesWith ->  Personnages.",
+        "supporting_triples": [
+          {
+            "s": "Google DeepMind",
+            "p": "collaboratesWith",
+            "o": "CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE"
+          },
+          {
+            "s": "Google DeepMind",
+            "p": "collaboratesWith",
+            "o": "CNRS"
+          },
+          {
+            "s": "Google DeepMind",
+            "p": "collaboratesWith",
+            "o": "ICML"
+          },
+          {
+            "s": "Google DeepMind",
+            "p": "collaboratesWith",
+            "o": " Personnages"
+          },
+          {
+            "s": "Google DeepMind",
+            "p": "collaboratesWith",
+            "o": "Le"
+          }
+        ]
+      }
+    },
+    {
+      "question": "What research areas does CNRS cover?",
+      "baseline_no_kg": "Baseline (no KG): likely answer based on document similarity only. Top source hint: Lab Session 1.txt :: FILE: Lab Session 1.pdf PAGES: 3 ===== PAGE 1 ===== Lab Session 1.md 2026-01-14 1 / 3 Lab Session 1: From the Unstructured Web to Structured Entities Course: Web mining & semantics Duration: 3 Hours (two sessions) 1. Int",
+      "rag_with_kg": {
+        "question": "What research areas does CNRS cover?",
+        "sparql": "PREFIX ex: <http://example.org/ai-kg/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nSELECT DISTINCT ?entity ?entityLabel ?area ?areaLabel WHERE {\n  ?entity ex:hasResearchArea ?area .\n  OPTIONAL { ?entity rdfs:label ?entityLabel }\n  FILTER(CONTAINS(LCASE(STR(?entity)), \"cnrs\") || CONTAINS(LCASE(STR(COALESCE(?entityLabel, \"\"))), \"cnrs\"))\n  OPTIONAL { ?area rdfs:label ?areaLabel }\n}\nLIMIT 10",
+        "query_success": true,
+        "retry_count": 0,
+        "query_error": null,
+        "answer": "From the KG evidence, the entities are connected as follows: CNRS -> hasResearchArea -> Artificial Intelligence; CNRS -> hasResearchArea -> Knowledge Graphs; CNRS -> hasResearchArea -> Knowledge Reasoning; CNRS -> hasResearchArea -> Ontology Engineering.",
+        "supporting_triples": [
+          {
+            "s": "CNRS",
+            "p": "hasResearchArea",
+            "o": "Artificial Intelligence"
+          },
+          {
+            "s": "CNRS",
+            "p": "hasResearchArea",
+            "o": "Knowledge Graphs"
+          },
+          {
+            "s": "CNRS",
+            "p": "hasResearchArea",
+            "o": "Knowledge Reasoning"
+          },
+          {
+            "s": "CNRS",
+            "p": "hasResearchArea",
+            "o": "Ontology Engineering"
+          }
+        ]
+      }
+    }
+  ]
+}

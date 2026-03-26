@@ -1,0 +1,44 @@
+{
+  "module": 3,
+  "execution": {
+    "initial_triples": 1458,
+    "after_v1": 1529,
+    "final_triples": 1653,
+    "total_added": 124,
+    "growth_from_base": "8.5%"
+  },
+  "relations": {
+    "worksOn": 1,
+    "hasResearchArea": 11,
+    "collaboratesWith": 26,
+    "affiliatedWith": 0,
+    "publishedOn": 11,
+    "usesTechnique": 0,
+    "relatesToResearch": 25,
+    "builds": 0
+  },
+  "top_5_relations": [
+    {
+      "type": "confidenceScore",
+      "count": 151
+    },
+    {
+      "type": "entityType",
+      "count": 151
+    },
+    {
+      "type": "sourceUrl",
+      "count": 151
+    },
+    {
+      "type": "extractionTimestamp",
+      "count": 151
+    },
+    {
+      "type": "locatedIn",
+      "count": 49
+    }
+  ],
+  "research_fields": 16,
+  "entities_mapped": 8
+}

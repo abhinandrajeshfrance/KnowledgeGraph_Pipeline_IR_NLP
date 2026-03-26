@@ -1,0 +1,32 @@
+[
+  {
+    "local_property": "http://example.org/ai-kg/affiliatedWith",
+    "wikidata_property": "http://www.wikidata.org/prop/direct/P108",
+    "confidence": 0.92,
+    "note": "Employer / affiliation"
+  },
+  {
+    "local_property": "http://example.org/ai-kg/participatesIn",
+    "wikidata_property": "http://www.wikidata.org/prop/direct/P1344",
+    "confidence": 0.88,
+    "note": "Participant in"
+  },
+  {
+    "local_property": "http://example.org/ai-kg/locatedIn",
+    "wikidata_property": "http://www.wikidata.org/prop/direct/P131",
+    "confidence": 0.87,
+    "note": "Located in administrative entity"
+  },
+  {
+    "local_property": "http://example.org/ai-kg/focusesOn",
+    "wikidata_property": "http://www.wikidata.org/prop/direct/P101",
+    "confidence": 0.84,
+    "note": "Field of work"
+  },
+  {
+    "local_property": "http://example.org/ai-kg/collaboratesWith",
+    "wikidata_property": "http://www.wikidata.org/prop/direct/P463",
+    "confidence": 0.75,
+    "note": "Member of / collaboration proxy"
+  }
+]

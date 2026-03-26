@@ -1,0 +1,84 @@
+{
+  "before_original_module5": {
+    "mrr": 0.0996309959517647,
+    "hits_at_1": 0.06,
+    "hits_at_3": 0.12,
+    "hits_at_10": 0.16
+  },
+  "before_previous_run": {
+    "mrr": 0.37188092031084347,
+    "hits_at_1": 0.16037735849056603,
+    "hits_at_3": 0.5377358490566038,
+    "hits_at_10": 0.7358490566037735,
+    "eval_size": 106
+  },
+  "quick_tuning_config": {
+    "model": "TransE",
+    "embedding_dim": 150,
+    "epochs": 100,
+    "learning_rate": 0.001,
+    "note": "Quick-pass tuned config for lightweight optimization"
+  },
+  "datasets": {
+    "base_train_size": 1096,
+    "inferred_parsed_and_generated": 79,
+    "inferred_added_unique": 79,
+    "plus_inferred_train_size": 1162
+  },
+  "experiments": {
+    "base_kb": {
+      "valid": {
+        "mrr": 0.33108921633233074,
+        "hits_at_1": 0.13934426229508196,
+        "hits_at_3": 0.45901639344262296,
+        "hits_at_10": 0.6967213114754098,
+        "eval_size": 122
+      },
+      "test": {
+        "mrr": 0.35086479919472036,
+        "hits_at_1": 0.16037735849056603,
+        "hits_at_3": 0.4716981132075472,
+        "hits_at_10": 0.7264150943396226,
+        "eval_size": 106
+      }
+    },
+    "kb_plus_inferred": {
+      "valid": {
+        "mrr": 0.33741069108340865,
+        "hits_at_1": 0.13934426229508196,
+        "hits_at_3": 0.47540983606557374,
+        "hits_at_10": 0.680327868852459,
+        "eval_size": 122
+      },
+      "test": {
+        "mrr": 0.37188092031084347,
+        "hits_at_1": 0.16037735849056603,
+        "hits_at_3": 0.5377358490566038,
+        "hits_at_10": 0.7358490566037735,
+        "eval_size": 106
+      }
+    }
+  },
+  "comparison": {
+    "best_variant": "kb_plus_inferred",
+    "inferred_improved": true,
+    "delta_mrr_inferred_minus_base": 0.02101612111612311,
+    "delta_hits10_inferred_minus_base": 0.009433962264150941,
+    "before_to_best_delta_mrr": 0.2722499243590788,
+    "before_to_best_delta_hits10": 0.5758490566037735
+  },
+  "best_configuration": {
+    "variant": "kb_plus_inferred",
+    "model": "TransE",
+    "embedding_dim": 150,
+    "epochs": 100,
+    "learning_rate": 0.001,
+    "test_metrics": {
+      "mrr": 0.37188092031084347,
+      "hits_at_1": 0.16037735849056603,
+      "hits_at_3": 0.5377358490566038,
+      "hits_at_10": 0.7358490566037735,
+      "eval_size": 106
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "total_unique_entities": 111,
+  "auto_linked": 0,
+  "candidate": 0,
+  "rejected": 111,
+  "linked_percentage": 0.0,
+  "auto_threshold": 0.85,
+  "candidate_range": [
+    0.6,
+    0.85
+  ]
+}

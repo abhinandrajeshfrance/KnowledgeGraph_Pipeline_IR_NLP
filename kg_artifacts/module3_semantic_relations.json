@@ -1,0 +1,46 @@
+{
+  "module": 3,
+  "phase": "semantic_enrichment",
+  "execution_summary": {
+    "base_graph_triples": 1458,
+    "enriched_graph_triples": 1653,
+    "total_triples_added": 195,
+    "growth_percent": 13.4
+  },
+  "semantic_relations": {
+    "types_created": 5,
+    "total_relations": 95,
+    "by_type": {
+      "collaboratesWith": 42,
+      "authored": 11,
+      "hasResearchArea": 27,
+      "addressesField": 11,
+      "worksOn": 4
+    }
+  },
+  "research_fields": {
+    "count": 21,
+    "samples": [
+      "Artificial Intelligence",
+      "Biomedical NLP",
+      "Computer Vision",
+      "Data Mining",
+      "Deep Learning",
+      "Entity Linking",
+      "Information Retrieval",
+      "Knowledge Graph Embedding"
+    ]
+  },
+  "entities_enriched": {
+    "count": 9,
+    "enrichment_type": "research domain linking"
+  },
+  "example_triples": [
+    "Peter Eisenman → worksOn → Knowledge Graphs",
+    "Peter Eisenman → worksOn → Semantic Web",
+    "CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE → hasResearchArea → Knowledge Graphs",
+    "CHAIR PROGRAM COMMITTEE CHAIRS ORGANIZING COMMITTEE → hasResearchArea → Natural Language Processing",
+    "ICML → collaboratesWith → Google DeepMind",
+    "CNRS → collaboratesWith → Inria Portraits / Personnages"
+  ]
+}

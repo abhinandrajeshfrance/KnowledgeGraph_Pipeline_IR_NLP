@@ -1,0 +1,823 @@
+FILE: information_retrieval.pdf
+PAGES: 60
+
+
+===== PAGE 1 =====
+INFORMATION RETRIEVAL
+From plain text to triplets
+
+===== PAGE 2 =====
+Data (text) 
+pre-
+processing
+2
+
+===== PAGE 3 =====
+Data (text) pre-processing: From raw to 
+structured text
+1. Word (term) extraction/segmentation
+• easy for space-delimited languages (eg. English and French)
+• Not straightforward for scriptio continua languages (eg. Chinese)
+• Using probability models (eg. HMM+Viterbi) or sequential models (eg. LSTM, 
+Transformer, etc.)
+2. Stop-words removal
+3. Stemming/lemmatization
+4. Word representation: 
+• Tokenization
+• Frequency counts and computing TF-IDF term weights. 
+3
+
+===== PAGE 4 =====
+Stop-words removal
+• Many of the most frequently used words in English are useless 
+in IR and text mining – these words are called stop-words.
+• the, of, and, to, ….
+• Typically, about 400 to 500 such words
+• For an application, an additional domain specific stopwords list may be 
+constructed
+• Why do we need to remove stop-words?
+• Reduce indexing (or data) file size
+• Stop-words accounts 20-30% of total word counts.
+• Improve efficiency and effectiveness
+• Stop-words are not useful for searching or text mining
+• they may also confuse the retrieval system. 
+4
+
+===== PAGE 5 =====
+Stemming
+• Techniques used to find out the root/stem of a word. E.g.,
+• user            engineering
+• users            engineered               
+• used                  engineer                  
+• using          
+• stem:  use                             engineer
+Usefulness:
+• improving effectiveness of IR and text mining 
+• matching similar words
+• Mainly improve recall
+• reducing indexing size
+• combing words with same roots may reduce indexing size as much as 40-50%.
+5
+
+===== PAGE 6 =====
+Basic stemming methods
+Using a set of rules. E.g., 
+• remove ending
+• if a word ends with a consonant other than s, followed by an s, then delete s.
+• if a word ends in es, drop the s.
+• if a word ends in ing, delete the ing unless the remaining word consists only of one 
+letter or of th.
+• If a word ends with ed, preceded by a consonant, delete the ed unless this leaves 
+only a single letter.
+• …...
+• transform words
+• if a word ends with “ies” but not “eies” or “aies” then “ies --> y.”
+6
+
+===== PAGE 7 =====
+Lemmatization (1)
+• Grouping together the inflected forms of a word so they can be 
+analysed as a single item, identified by the word's lemma
+• Similar to Stemming, but more precise, with the consideration of the 
+context
+• "better" has "good" as its lemma. This link is missed by stemming, as it requires a 
+dictionary look-up.
+• "walk" is the base form for the word "walking", this is matched in both stemming 
+and lemmatization.
+• The word "meeting" can be either the base form of a noun or a form of a verb
+("to meet") depending on the context. 
+• Algorithms
+• A trivial way: dictionary lookup
+• Rule-based system (based on PoS tagging)
+7
+
+
+===== PAGE 8 =====
+Lemmatization (2): Algo. by PoS tagging
+• Marking up a word in a text (corpus) 
+as corresponding to a particular Part 
+of Speech, based on both its 
+definition and its context.
+• Such tagging helps finding the lemma 
+of words
+• Example, with more tags here
+• How to find the PoS tagging? We will 
+see later in the named entities 
+recognition part
+8
+Tag Description Example
+NN Singular common noun dog
+PRP Peronal Pronoun He, she, it
+VB Base form of a verb Run
+VBD Past tense verb ran
+JJ Adjective quick
+RB Adverb quickly
+DT Determiner (eg., articles) the, a
+IN Preposition in, on, because
+UH Interjection Oh, wow
+
+===== PAGE 9 =====
+Example
+• Original Text: The quick brown foxes 
+are jumping over the lazy dogs.
+Lemmatized Text: the quick brown 
+fox be jump over the lazy dog .
+9
+The → Determiner (DT)
+quick → Adjective (JJ)
+brown → Adjective (JJ)
+fox → Noun (NN)
+jumps → Verb (VBZ)
+over → Preposition (IN)
+the → Determiner (DT)
+lazy → Adjective (JJ)
+dog → Noun (NN)
+
+===== PAGE 10 =====
+Lemmatization (3): implementation with 
+WordNet Lemmatizer
+• The Natural Language Toolkit (NLTK) and spaCy provides a 
+class called WordNetLemmatizer, which is a thin wrapper 
+around the WordNet corpus, based on dictionary lookup
+10
+# import these modules
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
+print("rocks :", lemmatizer.lemmatize("rocks"))
+print("corpora :", lemmatizer.lemmatize("corpora"))
+# a denotes adjective in "pos"
+print("better :", lemmatizer.lemmatize("better", pos="a"))
+rocks : rock
+corpora : corpus
+better : good
+pos(str)-the PoS tag:
+“n” for nouns,
+“v” for verbs,
+“a” for adjectives,
+“r” for adverbs and
+“s” for satellite adjectives.
+
+===== PAGE 11 =====
+Tokenization
+• The process of breaking a stream of text into smaller 
+meaningful elements called tokens. The tokens can be words, 
+phrases, symbols, or even sub-words depending on the 
+application
+11
+
+===== PAGE 12 =====
+Information 
+Retrieval
+14
+
+===== PAGE 13 =====
+Information Extraction (IE) in practice: NE
+• Named entity: A lexical unit which 
+refers to a real-word object classified 
+within a category: people, organization, 
+location, money, percent, etc
+• Named Entity Recognition (NER) : a 
+salient sub-task of IE. Involves three 
+steps: recognition, categorization, 
+normalization (if needed)
+15
+
+
+===== PAGE 14 =====
+Information Extraction (IE) in practice: Relation
+• Relations: 
+• Facts generally involving named (named) entities 
+• Facts as n-ary relations between entities 
+• Literature focuses on binary relations, converted into knowledge triples: 
+(subject, predicate, object)
+16
+
+
+===== PAGE 15 =====
+Information Extraction (IE) in practice: Events
+• There is no standard definition for Event, it is a specific 
+occurrence triggered at a place and time
+• An award event ”Cedric Viliani from France, won the Fields 
+Medal in 2010”
+• Entities: objects involved (Cedric Villiani, Fields Medal) 
+• Event type: nature of the event (wining) 
+• Event trigger: a verb or noun as the core unit of the evnt (won) 
+• Event arguments: attributes of the event.(2010) 
+• Argument role: relationship between the event and the argument eg.
+time, date, place, (2010: date)
+17
+
+===== PAGE 16 =====
+Extracting Named Entities: NE recognition 
+(NER)
+• The task of NER
+• How to do NER?
+18
+
+
+===== PAGE 17 =====
+Approaches for NER
+• Rule-based
+• Manual/hand-written patterns
+• Unsupervised learning 
+• Mostly clustering techniques 
+• Discriminative models
+• Feature-based supervised learning 
+• Naive Bayes, Hidden Marko Models (HMM), Conditional Random Field 
+(CRF), Maximum-Entropy Markov Models (MEMMs) 
+• (Deep) Neural - based learning 
+• Distributed representation of inputs, deep encoding of context, tags
+• Transformer based learning20
+
+===== PAGE 18 =====
+Approaches for NER: Rule-based methods
+• A rule describes a pattern for a NE category (Org, Per, etc.)
+• Recognizes the applicability of the rule: 
+• Matches the instances of the category based on regularities 
+• If the context is applicable then: 
+• Bound the NE: <Begin /NE….End/NE>
+• Assign the NE to the category
+• Features used for NER
+• Lexical features 
+• Position, punctuation, spelling, ... 
+• Syntaxic features 
+• Prefix, suffix, grammatical tag, negation, ..
+• Semantic features 
+• Polarity (positive, negative, neutral), relation with word contexts, ...
+21
+Example 
+
+===== PAGE 19 =====
+Rule-based methods: Examples
+• Person names in the form: « Mr/Mrs/Dr/. X»
+• Seminar schedule: « Seminar at time pm/am»
+22
+General Architecture for T ext Engineering(GA TE)
+
+===== PAGE 20 =====
+Rule-based methods: Examples
+• Some NE requires a pair 
+of rules: Begin and End
+for tagging and bounding
+• Expression: « To appear 
+‘Le monde ’ Vol. 5 »
+• Some patterns allow 
+bounding a set of NE (eg.
+rich tabular forms)
+• Recognize room number 
+and renting price
+23
+
+
+===== PAGE 21 =====
+Rule-based methods: implementation
+• Extract by Regular Expression (RE): More details
+• Example:
+• Extract organization names
+• Extract e-mail addresses
+24
+
+
+===== PAGE 22 =====
+Rule-based methods: Using NLP tags
+• NLP might help designing hand-written rules
+• Uses NLP tags
+• Part Of Speech (POS) tagging 
+• Syntactic parsing: mark words as nouns, verbs, 
+preposition, etc. 
+• Semantic word categories from an external resource 
+(Yago, Freebase, WordNet, etc.)
+• Rule-based expressions with NLP 
+• Which person holds what office in what organization: 
+[Pers], [office] of [Org]
+• Where an organization is located: [Org] in [Loc] 
+25
+
+
+===== PAGE 23 =====
+Limitations of rule-based methods
+• Historically (1987-1997) from Message Understanding events 
+(MUC). Main tasks focused on extracting from news: 
+• NER, Coreference resolution, Information Extraction 
+• Limitations of rule-based methods
+• Cost of the definition of hand-written rules: 1 rule per form ! Useful for 
+limited "clear" patterns 
+• Recall might be low in rich texts 
+• Gradually moved to machine-learning based methods
+26
+
+===== PAGE 24 =====
+Approaches for NER
+• Rule-based 
+• Manual/hand-written patterns
+• Unsupervised learning 
+• Mostly clustering techniques 
+• Discriminative models
+• Feature-based supervised learning 
+• Naive Bayes, Hidden Marko Models (HMM), Conditional Random Field 
+(CRF), Maximum-Entropy Markov Models (MEMMs) 
+• (Deep) Neural - based learning 
+• Distributed representation of inputs, deep encoding of context, tags
+27
+
+===== PAGE 25 =====
+NER-Unsupervised learning methods
+28
+• Key idea 
+• No human-labeled text 
+• General pipeline 
+• Select features to encode/represent input text 
+• Manual/hand-written rules 
+• Apply a clustering model to feature -based descriptors 
+• The model uses a combination of features 
+• The model assigns to tokens in the input text automatically-
+generated labels 
+• Generally, learns one set of rules per NE 
+category 
+A paper with text and images
+AI-generated content may be incorrect.
+M. Collins, Y . Singer; Unsupervised 
+models for named entity classification 
+EMNLP 1999
+
+===== PAGE 26 =====
+The Collins & Yoram method
+• Key idea
+• High-level of redundancy in the data makes possible to automatically generate/learn 
+"labelling rules" ie. assign a NE category (Person, Location, Organization) 
+to a token. well known today as self-supervision 
+• Key notion: feature-based rule 
+• Parse sentences/strings in the text: recognize capitals, grammatical positions (Noun, 
+Verb, Preposition, modifiers, etc. 
+• Feature-based predicate: indicates the properties of the string on a pair of (spelling, 
+context) pair 
+• Spelling: forms of the words within the string 
+• Context: forms and roles of the words surrounding the sentence
+• Feature-based rule: feature-based predicate that automatically assigns to the 
+string/sentence an entity category
+29
+
+===== PAGE 27 =====
+30
+Feature-based descriptors of strings
+Feature-based EN labelling rules
+
+===== PAGE 28 =====
+The general algorithm of automatic generation 
+of labeling rules
+– Input: training T text, R a set of seed rules; n: number of rules generated at each iteration, 
+k: number of labels 
+Begin 
+1- Automatically label the training texts T using R
+2- Induce contextualized rules from labeled data 
+3- Select the most confident contextual rules (less than n*k) 
+4- Apply the contextual rules generated in 3 to automatically label text T
+5- Select the most confident spelling rules (less than n*k) 
+6- n=n+5 ; if n<threshold 
+Add the n top selected spelling rules to R/spelling and contextual rules;
+Return to step 1.
+End
+31
+
+===== PAGE 29 =====
+• Advantages 
+• Limited amount supervision/labels is initially needed 
+• Possibility of using a wide range of supervised learning algorithms for 
+self-generating new labeling rules (naive bayes, decision trees, 
+bootstrapping) 
+• Limitations 
+• Performance heavily depends on seed rules 
+• Lack of generalizability, exhaustivity of rules: diversity of contexts lead 
+to noisy rules
+• Requires the definition of seed hand -written rules ...inherently induces 
+limitations of this method!
+32
+
+===== PAGE 30 =====
+Approaches for NER
+• Rule-based 
+• Manual/hand-written patterns
+• Unsupervised learning 
+• Mostly clustering techniques 
+• Discriminative models
+• Feature-based supervised learning 
+• Naive Bayes, Hidden Marko Models (HMM), Conditional Random Field 
+(CRF), Maximum-Entropy Markov Models (MEMMs) 
+• (Deep) Neural - based learning 
+• Distributed representation of inputs, deep encoding of context, tags
+33
+
+===== PAGE 31 =====
+NER-Supervised learning methods
+• Key idea 
+• Automatically learn features-based models for classifying entities  
+• A class is a category label 
+• General pipeline 
+• Identify a set of target NE categories to classify 
+• Design relevant features to encode/represent input text (either training or testing) for these NE 
+categories. Build/code the extractors 
+• Training 
+• Dispose of human-labelled data (training collection): each token is labeled with its category/class 
+• Train a text classification model (NB, CRF, HMM, etc.) to predict the entity label class from the data 
+• Testing 
+• Dispose of a testing collection (to be automatically labeled) 
+• Run the trained classification model 
+• Output the predicted entities labels/classes
+34
+
+===== PAGE 32 =====
+Feature Extraction (1)
+• Lexical: capitalization, special characters, punctuation, ... 
+• Syntaxic: POS tags (e.g., V, NN, etc.) 
+• Semantic features: semantic category is a resource, 
+• Discourse features: computed by using text fragments beyond 
+the sentence.
+35
+(lives)      (in)
+(The seminar             starts               at) (this afternoon)
+
+===== PAGE 33 =====
+Feature Extraction (2): measure the features
+• Build the feature-based descriptors based on feature functions: 
+basic or composite functions, regular expressions, ... 
+• Features can have Boolean, numerical, range values, ... 
+• On the current word, on previous words, ? next words (context)
+36
+
+
+===== PAGE 34 =====
+Measure the features
+37
+
+===== PAGE 35 =====
+Extract features with Python
+38
+Two features
+Dictionary, whose 
+key is the entity,  
+and the value is 
+the feature array
+
+===== PAGE 36 =====
+Learning methodology: (Very) Naïve Bayes
+• Input: n labeled examples in the form (xi , yj);
+• xi : a feature-based descriptor based on m features { xi1,...,xim}; 
+• yj a label in Y={1,2,...,k}, 
+• k: number of labels.
+• Task: Define a function that better maps an input x to output 
+h(x). 
+• One way to define h(x) is a conditional model
+39
+
+
+===== PAGE 37 =====
+Learning methodology: (Very) Naïve Bayes
+• How to estimate model parameters? Apply Bayes rule
+• Thus, for a test token x, we can predict the label y, using
+• Where 
+40
+Smoothed estimation to eliminate issues caused 
+by certain values having 0 occurrences. Here 
+Laplace smoothing for 𝛼=1
+
+===== PAGE 38 =====
+Learning methodology: Conditional Random 
+Fields (CRF)
+• In the NB method, texts are not classified as sequences.
+• Conditional Random Fields (CRF), applies conditional decision of labelling 
+w.r.t context, i.e., previous entity label
+• Input: n labeled sequences in the form (x i , yj ); 
+• xi: a feature-based descriptor of word wi based on m features {xi1,...,xim}; 
+• yi: a label in Y={1,2,...,k}, 
+• k: number of labels
+• Sequence of words/tokens:
+41
+
+
+===== PAGE 39 =====
+Example
+42
+• Sequence in practice
+• x1j: word is capitalised,   
+• x2j: word is in lexicon L. 
+(Remind: xij: Feature xi for target word j)
+• y1:[Pers], y2:[Loc], y3:[Null]
+
+
+===== PAGE 40 =====
+Learning methodology: CRF (1)
+• The features are same as in NB: basic or composite functions, regular expressions…
+• For a given input sequence x=(x1,x2,…,xT)(e.g., words in a sentence) and a 
+corresponding label sequence y=(y1,y2,…,yT)(e.g., PoS tags or entity labels), a 
+linear-chain CRF defines the conditional probability as:
+𝑝 𝒚|𝒙 = 1
+𝑍(𝒙) exp(෍
+𝑡=1
+𝑇
+෍
+𝑗=1
+𝑚
+𝜃𝑗𝐹𝑗(𝑥, 𝑦, 𝑡))
+• It’s the value of any feature function for all words of the sentence, indexed by t, 
+considering label y
+• Unlike NB model, CRF models impose dependency between target successive 
+labels, with parameters on t
+• Z(x): The normalization factor (also called the partition function) which ensures that the 
+probabilities sum to 1:
+𝑍 𝒙 = ෍
+𝑦
+exp(෍
+𝑡=1
+𝑇
+෍
+𝑗=1
+𝑚
+𝜃𝑗𝐹𝑗(𝑥, 𝑦, 𝑡))43
+
+===== PAGE 41 =====
+Learning methodology: CRF (2)
+𝑝 𝒚|𝒙 = 1
+𝑍(𝒙) exp(෍
+𝑡=1
+𝑇
+෍
+𝑗=1
+𝑚
+𝜃𝑗𝐹𝑗(𝑥, 𝑦, 𝑡))
+• 𝜃𝑗 is the weight associated with the j-th feature function, learned during training.
+• 𝐹𝑗(𝑥, 𝑦) is the scoring function based on the feature function on all words.
+𝐹𝑗 𝑥, 𝑦 = ෍
+𝑡=1
+𝑇
+𝑓𝑗(𝑦𝑡, 𝑦𝑡−1, 𝑥𝑡)
+• 𝑓𝑗(𝑦𝑡, 𝑦𝑡−1, 𝑥𝑡) is the feature extraction function, here are two examples
+• Observation feature: 𝑓𝑗 𝑦𝑡, 𝑥𝑡 = 1 if the word 𝑥𝑡 has a certain property and 𝑦𝑡 is a 
+specific tag (as in NB method). The transition of the label is not considered.
+• Transition Feature: 𝑓𝑗(𝑦𝑡, 𝑦𝑡−1, 𝑥𝑡)=1 if 𝑦𝑡−1 and 𝑦𝑡 follow a certain pattern (e.g., if the 
+previous label is “B-PER” and the current label is ”I-PER”, 0 otherwise). The transition 
+of the label is considered
+44
+
+===== PAGE 42 =====
+CRF: training
+• During training, the weights 𝜃𝑗are optimized to maximize the 
+likelihood of the training data. The objective function is usually 
+the log-likelihood of the training set:
+ℒ 𝜃 = ෍
+𝑖
+𝑁
+log 𝑝 𝑦 𝑖 𝑥 𝑖 − ෍
+𝑗=1
+𝑚
+𝜃𝑚2
+2𝜎2
+• N is the number of training examples.
+• The second term is a Gaussian prior (regularization) to prevent over 
+fitting
+• Gradient-based methods, such as gradient ascent or quasi-
+Newton methods, are typically used to optimize the weights.
+45
+
+===== PAGE 43 =====
+CRF: inference
+ො𝑦 = argmax
+𝑦
+𝑝 𝑦 𝑥, 𝜃 = exp(𝜃 × 𝐹(𝑦, 𝑥))
+σ𝑦′ exp(𝜃 × 𝐹(𝑦, 𝑥))
+• We only need to find the label y with the maximum likelihood, so the 
+exponential inside the numerator and the denominator can be ignored
+ො𝑦 = argmax
+𝑦
+෍
+𝑡=1
+𝑇
+𝜃 × 𝑓𝑗(𝑦𝑡, 𝑦𝑡−1, 𝑥𝑡)
+• The problem is then to find an entire sequence of labels such that the sum 
+of the transition scores is maximized: 
+• use the Viterbi algorithm
+• We’ll see the same issue in HMM. 
+46
+
+
+===== PAGE 44 =====
+Practice: NER pipeline 
+using scikit learn
+47
+1. Feature extraction
+
+===== PAGE 45 =====
+Practice: NER pipeline 
+using scikit learn
+48
+• 2. split train and test data
+• 3. Train a CRF model
+• To see in lab session
+
+
+===== PAGE 46 =====
+In summary
+• Advantages 
+• Naive Bayes methods: naive but effective 
+• Experimental results show that CRF have superior accuracy 
+• Limitations 
+• CRFs are much slower to train and do not scale as well to large amounts of training data
+• Traditional ML-based classifiers for NER take a set of features as input 
+describing raw text units U and outout a prediction of the entity class CU
+• Traditional ML-based classifiers for NER require: 
+• Design features to represent raw text units. Combine features for larger units (feeture-
+engineering) 
+• Select a model to combine these features and make a prediction 
+• Train the model on a human-labelled corpus 
+• Test on unlabeled raw texts
+49
+
+===== PAGE 47 =====
+Approaches for NER
+• Rule-based 
+• Manual/hand-written patterns
+• Unsupervised learning 
+• Mostly clustering techniques 
+• Discriminative models
+• Feature-based supervised learning 
+• Naive Bayes, Hidden Marko Models (HMM), Conditional Random Field 
+(CRF), Maximum-Entropy Markov Models (MEMMs) 
+• (Deep) Neural - based learning 
+• Distributed representation of inputs, deep encoding of context, tags
+50
+
+===== PAGE 48 =====
+Why deep learning for NER?
+• Learn nonlinear mapping between input text 
+and output labels 
+• Naive Bayes, Linear CRF learn linear 
+combinations 
+• No requirement for feature engineering 
+• Is model ineffective or features are not 
+relevant in NB, CRF? 
+• DL learns mappings from raw data, not 
+features 
+• Learning in an end-to-end framework 
+• Learn task-based representations of labels: 
+suited representation of texts for NER, RE, .. 
+51
+• Approaches:
+• Distributed (contextless) representations of 
+input  
+• Use word embeddings to capture semantic 
+and syntactic properties of words 
+• Word2vec, Glove, etc... 
+• Sequence-based models of input  
+• Consider word in the whole sequence of 
+words (sentence) 
+• LSTM, RNN, Pointer architectures mostly 
+• Stacked self-attention within context 
+• Transformers
+
+===== PAGE 49 =====
+Distributed representations of input
+• Use embeddings at input (refer to the tutorial)
+• Character embeddings, word embeddings and pool the embeddings
+• Output as a classifier prediction 
+• Traditional linear combination of inputs (e.g., CRF) 
+• Neural inference based on embeddings (e.g., perceptron)
+52
+© Jie et al. 2019, COLING, 2018: Design 
+Challenges and Misconceptions in Neural 
+Sequence Labeling
+
+
+===== PAGE 50 =====
+Neural character sequence 
+representations
+53
+By using character embedding and word embedding, the 
+model learns Important factor for neural NER either for 
+characters and words representation
+
+===== PAGE 51 =====
+Neural word sequence 
+representations
+54
+words are represented by embeddings
+
+===== PAGE 52 =====
+Inference layer
+• The inference layer takes the extracted word sequence 
+representations as features and assigns labels to the word 
+sequence. 
+• Use either softmax or CRF as inference layer
+55
+
+
+===== PAGE 53 =====
+Evaluation of link NER
+• Measure how much the golden standard annotations map the 
+output of a NER system different scenarios. Build a 2-by-2 
+contingency matrix.
+• Main measures
+56
+TP: True Positive        FP: False Positive
+FN: False Negative   TN: True Negative
+Gold standard
+Correct Not correct
+NER system Selected TP FP
+Not selected FN TN
+
+
+===== PAGE 54 =====
+Results and conclusions
+• Character embeddings are more effective 
+than raw character representations 
+• No significant differences between CNN and 
+LSTM based representations  
+• Word embeddings are more effective than 
+raw words 
+• LSTM-based representations are more 
+effective than CNN-based representations 
+• Neural inference based on embeddings (eg.
+perceptron) 
+• Softmax-layer is more effective than CRF for 
+prediction output
+57
+
+
+===== PAGE 55 =====
+Transformer based
+• The most used one today. To see in next session.
+58
+
+===== PAGE 56 =====
+Datesets
+Corpus Year Text source #Entity 
+categorie
+s
+URL
+MUC-6 1995 Wall Street Journal 7 https://catalog.ldc.upenn.edu/LDC2003T13
+CoNLL03 2003 Reuters News 4 https://www.clips.uantwerpen.be/conll2003/n
+er/
+ACE 2000- 2008 Transcripts, news 7 https://www.ldc.upenn.edu/collaborations/pas
+t-projects/ace
+OntoNotes 2007- 2012 Magzines, news, web 18 https://catalog.ldc.upenn.edu/LDC2013T19
+WikiGold 2009 Wikipedia 4 https://figshare.com/articles/Learning_multilin
+gual_name d_entity
+_recognition_from_Wikipedia/5462500 
+WiNER 2012 Wikipedia 4 http://rali.iro.umontreal.ca/rali/en/winer-
+wikipedia-for-ner
+BC5CDR 2015 PubMed 3 http://bioc.sourceforge.net/ 
+DFKI 2018 Business news and 
+social media
+7 https://dfki-lt-re-group.bitbucket.io/product-
+corpus/ 
+59
+
+===== PAGE 57 =====
+Relation Extraction (RE)
+• Relation extraction (RE) is the process of identifying and 
+classifying semantic relationships between NE in text.
+• Example: From "Barack Obama was born in Hawaii", extract the 
+relation BornIn(Barack Obama, Hawaii).
+• Both RE and NER are essentially annotation process.
+• They share common learning methodologies and feature extraction.
+• We can consider the relations as specific annotation labels
+• Differences:
+• RE often requires additional features that capture the connection between pairs of 
+entities.
+• The output of RE are structured relations, in form of triples, while NER outputs 
+only a sequence of lables
+60
+
+===== PAGE 58 =====
+RE Examples (Marie Curie discovered Polonium)
+• Rule-Based (Pattern-Based) Extraction
+• Method: Hand-crafted linguistic pattern.
+• Example Rule: X discovered Y → discovered(X, Y)
+• Output: (discovered, Marie Curie, polonium)
+• Feature-Based Supervised Machine Learning
+• Method: Train a classifier using engineered features.
+• Input Features (Simplified)
+• Entity types: Person, ChemicalElement
+• Dependency path: nsubj(discovered), dobj(discovered)
+• Token distance: 2
+61
+
+===== PAGE 59 =====
+RE Examples (Marie Curie discovered 
+Polonium)
+• CNN / RNN-Based Neural Models
+• Method: Sentence encoded as a sequence of word embeddings.
+• [Marie] [Curie] [discovered] [polonium] [in] [1898]
+• Model Output
+• Relation: discovered
+• Confidence: 0.91
+• Transformer-Based Relation Extraction (BERT-style) (to see in 
+next session)
+• Method: Contextual encoding with entity markers.
+• Input: [CLS] <e1>Marie Curie</e1> discovered <e2>polonium</e2> in 
+1898. [SEP]
+• Model Output: Relation = discovered
+62
+
+===== PAGE 60 =====
+Next Lecture
+• Transformer in IR.
+63
