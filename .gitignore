@@ -27,5 +27,9 @@ Thumbs.db
 *.tar
 *.gz
 
+# Local grading guide artifacts
+*Grading Guide.pdf
+*Grading Guide.txt
+
 # Notebook checkpoints
 .ipynb_checkpoints/
