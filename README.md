@@ -1,4 +1,4 @@
-# Knowledge Graph Pipeline for Information Retrieval and NLP
+# Knowledge Graph Pipeline for Web Datamining and Semantics
 
 This project implements a complete end-to-end pipeline that transforms unstructured web text into a structured Knowledge Graph (KG), applies reasoning and embeddings, and delivers a KG-grounded Retrieval-Augmented Generation (RAG) demo.
 
